@@ -1,0 +1,12 @@
+------------------
+- Set up classes for:
+	- Contants
+	- DifficultyScreen should implement Screen.make sure to add methods to be implemented.
+	- Player
+	- Icicles
+	- IciclesScreen, should implement Screen, make sure to add methods to be implemented.
+	- Icicle
+- Change default code created in IciclesGame.
+    - change parent class being extended from ApplicationAdapter to Game.
+    - remove render method and code inside create().
+- add log tags to classes.
