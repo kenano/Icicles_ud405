@@ -1,6 +1,6 @@
 ------------------
 - Set up classes for:
-	- Contants
+	- Constants
 	- DifficultyScreen should implement Screen.make sure to add methods to be implemented.
 	- Player
 	- Icicles
@@ -10,3 +10,29 @@
     - change parent class being extended from ApplicationAdapter to Game.
     - remove render method and code inside create().
 - add log tags to classes.
+------------------
+Define constants
+	- Color for background, icicle.
+	- size of world
+	- size of icicle.
+- Implement Icicle
+	- member variables: vector for position
+	- constructor parameter: position, sets position
+	- implement render method
+		- setColor
+		- user shaperender to draw icicle.
+- Implement IciclesScreen
+	- member variables: shaperender, icicle, extendedviewport
+	- Override show()
+		- create shaperender
+		- setAutoShapeType(true)
+		- Create a new Icicle in the middle of the world
+	- Override render
+		- clear the background
+		- Set the ShapeRenderer's projection matrix
+		- Draw the Icicle
+	- override resize
+		- Ensure that the viewport updates correctly
+	- override dispose
+		- dispose of shaperender
+-------------------

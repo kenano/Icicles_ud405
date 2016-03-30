@@ -13,6 +13,9 @@ public class IciclesGame extends Game {
 	
 	@Override
 	public void create () {
+
+		//call setScreen() with a new IciclesScreen()
+		setScreen(new IciclesScreen());
 	}
 
 }
