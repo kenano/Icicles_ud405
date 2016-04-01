@@ -25,6 +25,9 @@ public class IciclesScreen implements Screen {
     //add an icicle
     private Icicle icicle;
 
+    // TODO: Add a Player (complete Player.java first)
+    private Player player;
+
 
     @Override
     public void show() {
@@ -40,6 +43,10 @@ public class IciclesScreen implements Screen {
 
         //Create a new Icicle in the middle of the world
         icicle = new Icicle(new Vector2(Constants.WORLD_SIZE/2, Constants.WORLD_SIZE/2));
+
+        // TODO: Initialize the player
+        player = new Player(viewport);
+
 
     }
 
@@ -61,6 +68,8 @@ public class IciclesScreen implements Screen {
         //Draw the Icicle
         icicle.render(shapeRenderer);
 
+        // TODO: Call render() on the player
+        player.render(shapeRenderer);
     }
 
     @Override
@@ -68,6 +77,9 @@ public class IciclesScreen implements Screen {
 
         //Ensure that the viewport updates correctly
         viewport.update(width, height, true);
+
+        // TODO: Reset the player (using init())
+        player.init();
     }
 
     @Override

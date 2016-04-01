@@ -36,3 +36,14 @@ Define constants
 	- override dispose
 		- dispose of shaperender
 -------------------
+Create a class for the player
+	- define contstants to draw player.
+	- set up player class, add position vector, viewport member variables.
+	-  Add constructor that accepts and sets the viewport, then calls init()
+	-  Add init() function that moves the character to the bottom center of the screen
+	- Create a render function that accepts ShapeRenderer and does the  drawing
+	- add player to the IcicleScreen class.
+		- add instance variable for player
+		- initialize it in show()
+		- call player.render in render
+		- Reset the player (using init())
