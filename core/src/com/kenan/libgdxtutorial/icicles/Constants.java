@@ -42,4 +42,7 @@ public class Constants {
 
     // TODO: Add constant for the player's color
     public static final Color PLAYER_COLOR = Color.BLACK;
+
+    // TODO: Add Constant for player movement speed
+    public static final float PLAYER_SPEED = 0.2f;
 }

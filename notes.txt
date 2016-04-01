@@ -47,3 +47,13 @@ Create a class for the player
 		- initialize it in show()
 		- call player.render in render
 		- Reset the player (using init())
+--------------------
+Add keyboard input/movement.
+	- add a member variable to store the velocity
+	- instantiate this in init.
+	- add a constant for the player speed. the velocity of the player is calculated by using this as a factor.
+	- add method update to player which updates the position of the player based on input.
+	-  Use Gdx.input.isKeyPressed() to move the player in the appropriate direction when an arrow key is pressed
+	- add function to ensure the player is within the viewport
+	- Call update() on player in IciclesScreen
+--------------------
