@@ -49,8 +49,22 @@ public class Player {
 
         }
 
+
+        // TODO: Compute accelerometer input = raw input / (gravity * sensitivity)
+        float xAxis = -Gdx.input.getAccelerometerY();
+        float yAxis = Gdx.input.getAccelerometerX();
+
+        float accelerationX = -  xAxis / (Constants.ACCELEROMETER_SENSITIVITY * Constants.GRAVITY);
+        float accelerationY = - yAxis / (Constants.ACCELEROMETER_SENSITIVITY * Constants.GRAVITY);
+
+        // TODO: Use the accelerometer input to move the player
+        velocity.x += delta * accelerationX;
+        velocity.y += delta * accelerationY;
+
+
         position.x += delta * velocity.x;
         position.y += delta * velocity.y;
+
 
         ensureInBounds(Constants.PLAYER_HEAD_RADIUS, viewport.getWorldWidth(), viewport.getWorldHeight());
 
