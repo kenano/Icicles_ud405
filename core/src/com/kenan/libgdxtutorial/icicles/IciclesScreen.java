@@ -17,16 +17,12 @@ public class IciclesScreen implements Screen {
     //ShapeRender handles graphics operations.
     private ShapeRenderer shapeRenderer;
 
-    //Add an ExtendViewport
     // Makes the short axis of the world larger to fill the screen, maintaining aspect ratio
     private ExtendViewport viewport =
             new ExtendViewport(Constants.WORLD_SIZE, Constants.WORLD_SIZE);
 
-    //add an icicle
-    private Icicle icicle;
-
-    // Add a Player (complete Player.java first)
     private Player player;
+    private Icicles icicles;
 
 
     @Override
@@ -41,12 +37,11 @@ public class IciclesScreen implements Screen {
         //**why is this done??
         shapeRenderer.setAutoShapeType(true);
 
-        //Create a new Icicle in the middle of the world
-        icicle = new Icicle(new Vector2(Constants.WORLD_SIZE/2, Constants.WORLD_SIZE/2));
-
         // Initialize the player
         player = new Player(viewport);
 
+        // Initialize icicles
+        icicles = new Icicles(viewport);
 
     }
 
@@ -68,8 +63,11 @@ public class IciclesScreen implements Screen {
         //  Call update() on player
         player.update(delta, viewport);
 
-        //Draw the Icicle
-        icicle.render(shapeRenderer);
+        // Update Icicles
+        icicles.update(delta);
+
+        //Render Icicles
+        icicles.render(shapeRenderer);
 
         //Call render() on the player
         player.render(shapeRenderer);
@@ -83,6 +81,9 @@ public class IciclesScreen implements Screen {
 
         // Reset the player (using init())
         player.init();
+
+        // Reset icicles
+        icicles.init();
     }
 
     @Override

@@ -1,4 +1,10 @@
 ------------------
+- Add constants for icicles. Icicle spawn rate an acceleration.
+- Implement Icicle. Methods update (this is where velocity, position is calculated for each Icicle.
+- Implement Icicles class which creates an array icicles at random locations (at top of window).
+    Also implement, render, update, init, constructor.
+- Add Icicles to IcicleScreen.
+------------------
 - Set up classes for:
 	- Constants
 	- DifficultyScreen should implement Screen.make sure to add methods to be implemented.
@@ -57,3 +63,5 @@ Add keyboard input/movement.
 	- add function to ensure the player is within the viewport
 	- Call update() on player in IciclesScreen
 --------------------
+Add Icicles
+    - Add constants for icicle spawn rate and icilcle velocity.
