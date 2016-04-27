@@ -62,7 +62,7 @@ public class Player {
 
         position.x += delta * velocity.x;
         position.y += delta * velocity.y;
-        
+
         ensureInBounds(Constants.PLAYER_HEAD_RADIUS, viewport.getWorldWidth(), viewport.getWorldHeight());
 
     }

@@ -53,5 +53,5 @@ public class Constants {
 
     public static final float ICICLE_ACCELERATION = -9.8f;
 
-    public static final float ICICLE_SPAWNS_PER_SECOND = 1.0f;
+    public static final float ICICLE_SPAWNS_PER_SECOND = 4.0f;
 }

@@ -49,4 +49,8 @@ public class Icicle {
                 position.x + Constants.ICICLE_WIDTH / 2, position.y + Constants.ICICLE_HEIGHT);
         renderer.end();
     }
+
+    public Vector2 getPosition(){
+        return position;
+    }
 }
