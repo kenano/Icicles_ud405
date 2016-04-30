@@ -66,6 +66,11 @@ public class IciclesScreen implements Screen {
         // Update Icicles
         icicles.update(delta);
 
+        //if any of the icicles have hit the player, reset icicles.
+        if(player.hitByIcicle(icicles)){
+            icicles.init();
+        }
+
         //Render Icicles
         icicles.render(shapeRenderer);
 

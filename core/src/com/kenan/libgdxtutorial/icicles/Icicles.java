@@ -1,13 +1,10 @@
 package com.kenan.libgdxtutorial.icicles;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
-import java.util.ArrayList;
 
 /**
  * Created by KenanO on 3/23/16.
@@ -19,7 +16,7 @@ public class Icicles {
 
     // holds icicles. data structure has feature that allows its elements to be removed while
     //the array is being iterated over.
-    private DelayedRemovalArray<Icicle> icicles;
+    protected DelayedRemovalArray<Icicle> icicles_array;
 
     public Icicles(Viewport viewport){
         mViewport = viewport;
@@ -28,7 +25,7 @@ public class Icicles {
     public void init() {
 
         //Initialize the DelayedRemovalArray
-        icicles = new DelayedRemovalArray<Icicle>();
+        icicles_array = new DelayedRemovalArray<Icicle>();
     }
 
     public void update(float delta) {
@@ -38,28 +35,28 @@ public class Icicles {
             Vector2 start_position = new Vector2(MathUtils.random(Constants.WORLD_SIZE),
                     Constants.WORLD_SIZE);
             Icicle icicle = new Icicle(start_position);
-            icicles.add(icicle);
+            icicles_array.add(icicle);
          }
 
         // Update each icicle
-        for(Icicle icl : icicles){
+        for(Icicle icl : icicles_array){
             icl.update(delta, mViewport);
         }
 
         //begin a removal session
-        icicles.begin();
+        icicles_array.begin();
 
         //check if icicle is below the screen and if so remove it.
-        if(icicles.size > 0){
-            for(int i = 0; i < icicles.size; i++){
-                if(icicles.get(i).getPosition().y < 0 ){
-                    icicles.removeIndex(i);
+        if(icicles_array.size > 0){
+            for(int i = 0; i < icicles_array.size; i++){
+                if(icicles_array.get(i).getPosition().y < 0 ){
+                    icicles_array.removeIndex(i);
                 }
             }
         }
 
         // End removal session
-        icicles.end();
+        icicles_array.end();
     }
 
     public void render(ShapeRenderer renderer) {
@@ -68,8 +65,8 @@ public class Icicles {
         renderer.setColor(Constants.ICICLE_COLOR);
 
         //Render each icicle
-        if(icicles != null) {
-            for (Icicle icicle : icicles) {
+        if(icicles_array != null) {
+            for (Icicle icicle : icicles_array) {
                 icicle.render(renderer);
             }
         }
