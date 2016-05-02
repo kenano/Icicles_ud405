@@ -24,7 +24,6 @@ public class Constants {
     //Add a constant for the width of the icicle
     public static final float ICICLE_WIDTH = 0.5f;
 
-
     //player sprite constants
     //player head radius
     public static final float PLAYER_HEAD_RADIUS = 0.5f;
@@ -32,13 +31,11 @@ public class Constants {
     // player head height
     public static final float PLAYER_HEAD_HEIGHT = 2.7f;
 
-
     // player limb width
     public static final float PLAYER_LIMB_WIDTH = 0.15f;
 
     // circle segments for the player's head
     public static final int SEGMENTS_FOR_HEAD = 20;
-
 
     //  player's color
     public static final Color PLAYER_COLOR = Color.BLACK;
@@ -47,11 +44,20 @@ public class Constants {
     public static final float PLAYER_SPEED = 0.2f;
 
     //Acceleration constants
-    public static final float GRAVITY = 9.8f;
+    public static final float GRAVITY = -9.8f;
 
     public static final float ACCELEROMETER_SENSITIVITY = .006f;
 
-    public static final float ICICLE_ACCELERATION = -9.8f;
-
     public static final float ICICLE_SPAWNS_PER_SECOND = 4.0f;
+
+    //screen reference size for scaling the HUD (480 works well)
+    public static final float HUD_FONT_SCALING_REFERENCE_SCREEN_SIZE = 480f;
+
+    //constant for the margin between the HUD and screen edge
+    public static final float HUD_MARGIN_SIZE = 20.0f;
+
+    //Text for player deaths
+    public static final String TEXT_PLAYER_DEATHS = "Deaths: ";
+    public static final String TEXT_SCORE = "Score: ";
+    public static final String TEXT_TOP_SCORE= "Top Score: ";
 }

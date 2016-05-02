@@ -27,7 +27,7 @@ public class Icicle {
     public void update(float delta, Viewport viewport){
 
         // update velocity using icicle accelration constant
-        velocity.y += delta * Constants.ICICLE_ACCELERATION;
+        velocity.y += delta * Constants.GRAVITY;
 
         // Update position using velocity
         position.y += delta * velocity.y;

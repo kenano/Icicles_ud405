@@ -12,6 +12,9 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class Icicles {
     public static final String TAG = Icicle.class.getName();
 
+    //counter for how many icicles have been dodged
+    private int dodged_icicles;
+
     private Viewport mViewport;
 
     // holds icicles. data structure has feature that allows its elements to be removed while
@@ -22,10 +25,19 @@ public class Icicles {
         mViewport = viewport;
     }
 
+    public int getDodgedIciclesCount() {
+        //return the number of dodgedIcicles
+
+        return dodged_icicles;
+    }
+
     public void init() {
 
         //Initialize the DelayedRemovalArray
         icicles_array = new DelayedRemovalArray<Icicle>();
+
+        // Set icicles dodged count to zero
+        dodged_icicles = 0;
     }
 
     public void update(float delta) {
@@ -50,6 +62,11 @@ public class Icicles {
         if(icicles_array.size > 0){
             for(int i = 0; i < icicles_array.size; i++){
                 if(icicles_array.get(i).getPosition().y < 0 ){
+
+                    //Increment count of icicles dodged
+                    dodged_icicles++;
+
+                    //remove icicle since it's not on screen anymore
                     icicles_array.removeIndex(i);
                 }
             }

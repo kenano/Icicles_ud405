@@ -22,10 +22,21 @@ public class Player {
     // Add a viewport
     private Viewport mViewport;
 
+    public int getDeathCount() {
+        return death_counter;
+    }
+
+    //counter for number of deaths
+    private int death_counter;
+
 
     // Add constructor that accepts and sets the viewport, then calls init()
     Player(Viewport viewport) {
         mViewport = viewport;
+
+        //Set number of deaths to zero
+        death_counter = 0;
+
         init();
     }
 
@@ -92,11 +103,14 @@ public class Player {
     public boolean hitByIcicle(Icicles icicles) {
         boolean isHit = false;
 
-        // TODO: Loop over icicles, checking if the point of any icicle is within the player's head
-
+        //  Loop over icicles, checking if the point of any icicle is within the player's head
         for(int i = 0; i < icicles.icicles_array.size; i++){
             if(this.position.dst(icicles.icicles_array.get(i).getPosition()) <
                     Constants.PLAYER_HEAD_RADIUS){
+
+                //If the player was hit, increment death counter
+                death_counter++;
+
                 return true;
             }
         }

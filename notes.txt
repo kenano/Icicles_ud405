@@ -1,4 +1,20 @@
 ------------------
+- Add functionality to keep track of deaths,score and high score. Add a HUD to IciclesScreen which
+    displays this info.
+    - In IciclesScreen SpriteBatch is used to render text.
+    - Use ScreenViewport for the HUD.
+    - BitmapFont for drawing the txt.
+    - In resize() update the hud viewport, make sure to center the camera.
+        - Calculate the bitmap font size based on screen size.
+    - In IcicleScreen.render(), calculate high score.
+        - draw hud using margins from Constants.
+    - In Icicles keep track of number of dodged icicles. This is the current score.
+        - in init() set to 0.
+        - calculate current number of dodged icicles in update().
+    - In Player keep track of number of deaths.
+        - in init() set to 0.
+        - calculate current number of deaths in update().
+------------------
 - When icicles go off screen they dont need to be in memory anymore. If they are not removed
     app will slow down due to lack of memory. However it is difficult to remove an item from an
     data structure while it is being iterated over. LibGDX has a class DelayedRemovalArray that
