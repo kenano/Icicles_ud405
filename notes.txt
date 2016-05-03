@@ -1,4 +1,13 @@
 ------------------
+- Add difficulty levels.
+    - In constants create enum DIFFICULTY which defines instances of the different difficulties.
+        COLD, COLDER, COLDEST. Each instance defines the text value ot be displayed in the hud
+        and the float which controls the amount of icicles being generated.
+    - IciclesGame should create a IciclesScreen with a DIFFICULTY.
+    - IciclesScreen will call Icicles with the set DIFFICULTY and also print the current difficulty
+        on the hud.
+    - Icicles should use the spawn rate defined in the enum to generate the icicles.
+------------------
 - Add functionality to keep track of deaths,score and high score. Add a HUD to IciclesScreen which
     displays this info.
     - In IciclesScreen SpriteBatch is used to render text.

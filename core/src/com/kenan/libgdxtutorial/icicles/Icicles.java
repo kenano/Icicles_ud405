@@ -21,8 +21,14 @@ public class Icicles {
     //the array is being iterated over.
     protected DelayedRemovalArray<Icicle> icicles_array;
 
-    public Icicles(Viewport viewport){
+    // The current difficulty setting
+    private Constants.DIFFICULTY current_difficulty;
+
+    public Icicles(Viewport viewport, Constants.DIFFICULTY difficulty){
+        //constructor sets the viewport icicles are drawn in and the current difficulty setting.
+
         mViewport = viewport;
+        current_difficulty =  difficulty;
     }
 
     public int getDodgedIciclesCount() {
@@ -42,8 +48,8 @@ public class Icicles {
 
     public void update(float delta) {
 
-        //spawn a new Icicle if below the spawn rate
-        if (MathUtils.random() < delta * Constants.ICICLE_SPAWNS_PER_SECOND) {
+        //spawn a new Icicle if below the spawn rate. Use the difficulty's spawn rate
+        if (MathUtils.random() < delta * current_difficulty.getSpawnRate()) {
             Vector2 start_position = new Vector2(MathUtils.random(Constants.WORLD_SIZE),
                     Constants.WORLD_SIZE);
             Icicle icicle = new Icicle(start_position);

@@ -14,8 +14,8 @@ public class IciclesGame extends Game {
 	@Override
 	public void create () {
 
-		//call setScreen() with a new IciclesScreen()
-		setScreen(new IciclesScreen());
+		//call setScreen() with a new IciclesScreen() with difficulty
+		setScreen(new IciclesScreen(Constants.DIFFICULTY.DIFFICULTY_COLDEST));
 	}
 
 }

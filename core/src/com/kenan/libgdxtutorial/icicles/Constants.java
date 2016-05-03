@@ -60,4 +60,36 @@ public class Constants {
     public static final String TEXT_PLAYER_DEATHS = "Deaths: ";
     public static final String TEXT_SCORE = "Score: ";
     public static final String TEXT_TOP_SCORE= "Top Score: ";
+
+    //Constants for difficulty labels ("Cold", "Colder", "Coldest")
+    public static final String TEXT_DIFFICULTY_COLD = "Cold";
+    public static final String TEXT_DIFFICULTY_COLDER = "Colder";
+    public static final String TEXT_DIFFICULTY_COLDEST = "Coldest";
+    public static final String TEXT_DIFFICULTY = "Difficulty: ";
+
+    // Constants for the icicle spawn rates for the various difficulties
+    public static final float ICICLE_SPAWNS_COLD = 2.0f;
+    public static final float ICICLE_SPAWNS_COLDER = 4.0f;
+    public static final float ICICLE_SPAWNS_COLDEST = 8.0f;
+
+    // Difficulty enum holding the spawn rate and label for each difficulty
+    enum DIFFICULTY{
+        DIFFICULTY_COLD(ICICLE_SPAWNS_COLD, TEXT_DIFFICULTY_COLD),
+        DIFFICULTY_COLDER(ICICLE_SPAWNS_COLDER, TEXT_DIFFICULTY_COLDER),
+        DIFFICULTY_COLDEST(ICICLE_SPAWNS_COLDEST, TEXT_DIFFICULTY_COLDEST);
+
+        DIFFICULTY(float _spawn_rate, String difficulty){
+            this.spawn_rate = _spawn_rate;
+            this.text = difficulty;
+        }
+
+        private float spawn_rate;
+        private String text;
+
+        public String getText() {return this.text;}
+
+        public float getSpawnRate(){
+            return this.spawn_rate;
+        }
+    }
 }

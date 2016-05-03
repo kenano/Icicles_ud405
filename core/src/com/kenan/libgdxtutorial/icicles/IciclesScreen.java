@@ -40,6 +40,14 @@ public class IciclesScreen implements Screen {
     //int to hold the top score
     private int top_score;
 
+    //current game difficulty
+    private Constants.DIFFICULTY current_difficulty;
+
+    //Set Difficulty inside the constructor
+    IciclesScreen(Constants.DIFFICULTY difficulty){
+        current_difficulty = difficulty;
+    }
+
     @Override
     public void show() {
 
@@ -73,8 +81,8 @@ public class IciclesScreen implements Screen {
         // Initialize the player
         player = new Player(icicles_screen_viewport);
 
-        // Initialize icicles
-        icicles = new Icicles(icicles_screen_viewport);
+        // Initialize icicles with the difficulty
+        icicles = new Icicles(icicles_screen_viewport, current_difficulty);
 
         // Set top score to zero
         top_score = 0;
@@ -125,9 +133,11 @@ public class IciclesScreen implements Screen {
         // Begin the SpriteBatch
         text_render_sprite_batch.begin();
 
+        // Show Difficulty level in the top left
         //Draw the number of player deaths in the top left
         bitmap_font.draw(text_render_sprite_batch,
-                Constants.TEXT_PLAYER_DEATHS + player.getDeathCount(),
+                Constants.TEXT_PLAYER_DEATHS + player.getDeathCount() + '\n'
+                        + Constants.TEXT_DIFFICULTY + current_difficulty.getText() ,
                 Constants.HUD_MARGIN_SIZE,
                 hud_viewport.getWorldHeight() - Constants.HUD_MARGIN_SIZE);
 
