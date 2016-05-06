@@ -1,4 +1,19 @@
 ------------------
+- Implement the difficulty level screen.
+    - Add constants for the buttons to be created, scaling factor for text in buttons, radius factor,
+      text for buttons.
+    - In IciclesGame implement method showIciclesScreen which has parameter Difficulty. start
+    IciclesScreen (the game) based on this input.
+    - In DifficultyScreen create SprintBatch, ShapeRender, BitmapFont, FitViewport.
+        - Extend this class to be a InputAdapter.
+        - Set the font scale.
+        - Draw buttons (circles) with shaperender
+        - Set spritebatch projection matrix.
+        - use GlyphLayout to calculate spacing needed to render the text in correct centered spot
+            in buttons.
+        - Override touchDown so input inside the circles will invoked desired button functionality.
+            ie to start game at selected difficulty.
+------------------
 - Add difficulty levels.
     - In constants create enum DIFFICULTY which defines instances of the different difficulties.
         COLD, COLDER, COLDEST. Each instance defines the text value ot be displayed in the hud

@@ -1,6 +1,7 @@
 package com.kenan.libgdxtutorial.icicles;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Vector2;
 
 /**
  * Created by KenanO on 3/23/16.
@@ -48,8 +49,6 @@ public class Constants {
 
     public static final float ACCELEROMETER_SENSITIVITY = .006f;
 
-    public static final float ICICLE_SPAWNS_PER_SECOND = 4.0f;
-
     //screen reference size for scaling the HUD (480 works well)
     public static final float HUD_FONT_SCALING_REFERENCE_SCREEN_SIZE = 480f;
 
@@ -71,6 +70,28 @@ public class Constants {
     public static final float ICICLE_SPAWNS_COLD = 2.0f;
     public static final float ICICLE_SPAWNS_COLDER = 4.0f;
     public static final float ICICLE_SPAWNS_COLDEST = 8.0f;
+
+    // color of each difficulty select circle
+    public static final Color EASY_COLOR = new Color(0.2f, 0.2f, 1, 1);
+    public static final Color MEDIUM_COLOR = new Color(0.5f, 0.5f, 1, 1);
+    public static final Color HARD_COLOR = new Color(0.7f, 0.7f, 1, 1);
+
+    //size of the difficulty world
+    public static final float DIFFICULTY_WORLD_SIZE = 480.0f;
+
+    // radius of the difficulty select "buttons"
+    public static final float DIFFICULTY_BUTTON_RADIUS = DIFFICULTY_WORLD_SIZE / 9;
+
+    //scale of the difficulty labels (1.5 works well)
+    public static final float DIFFICULTY_LABEL_SCALE = 1.5f;
+
+    //Vector2 constants for the centers of the difficulty select buttons
+    public static final Vector2 EASY_BUTTON_CENTER =
+            new Vector2(DIFFICULTY_WORLD_SIZE / 4, DIFFICULTY_WORLD_SIZE / 2);
+    public static final Vector2 MEDIUM_BUTTON_CENTER =
+            new Vector2(DIFFICULTY_WORLD_SIZE / 2, DIFFICULTY_WORLD_SIZE / 2);
+    public static final Vector2 HARD_BUTTON_CENTER =
+            new Vector2(DIFFICULTY_WORLD_SIZE * 3 / 4, DIFFICULTY_WORLD_SIZE / 2);
 
     // Difficulty enum holding the spawn rate and label for each difficulty
     enum DIFFICULTY{

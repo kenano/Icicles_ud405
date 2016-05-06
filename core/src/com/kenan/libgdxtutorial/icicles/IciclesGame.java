@@ -1,11 +1,6 @@
 package com.kenan.libgdxtutorial.icicles;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class IciclesGame extends Game {
 
@@ -14,8 +9,24 @@ public class IciclesGame extends Game {
 	@Override
 	public void create () {
 
-		//call setScreen() with a new IciclesScreen() with difficulty
-		setScreen(new IciclesScreen(Constants.DIFFICULTY.DIFFICULTY_COLDEST));
+		showDifficultyScreen();
 	}
 
+	public void showDifficultyScreen(){
+		// Show the difficulty screen
+
+		setScreen(new DifficultyScreen(this));
+	}
+
+	public void showIciclesScreen(Constants.DIFFICULTY difficulty){
+		// Show the Icicles screen (the game)
+
+		if(difficulty == Constants.DIFFICULTY.DIFFICULTY_COLD) {
+			setScreen(new IciclesScreen(Constants.DIFFICULTY.DIFFICULTY_COLD, this));
+		} else if(difficulty == Constants.DIFFICULTY.DIFFICULTY_COLDER){
+			setScreen(new IciclesScreen(Constants.DIFFICULTY.DIFFICULTY_COLDER, this));
+		}else if(difficulty == Constants.DIFFICULTY.DIFFICULTY_COLDEST){
+			setScreen(new IciclesScreen(Constants.DIFFICULTY.DIFFICULTY_COLDEST, this));
+		}
+	}
 }

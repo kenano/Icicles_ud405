@@ -1,6 +1,7 @@
 package com.kenan.libgdxtutorial.icicles;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,9 +15,12 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 /**
  * Created by KenanO on 3/23/16.
  */
-public class IciclesScreen implements Screen {
+public class IciclesScreen extends InputAdapter implements Screen {
 
     public static final String TAG = Icicle.class.getName();
+
+    // IciclesGame the parent which calls this class.
+    private IciclesGame icicles_game;
 
     //ShapeRender handles graphics operations.
     private ShapeRenderer shapeRenderer;
@@ -25,6 +29,8 @@ public class IciclesScreen implements Screen {
     private ExtendViewport icicles_screen_viewport;
 
     private Player player;
+
+    // Class that implements Icicles Data Structure. Stores multiple instances of the Icicle class.
     private Icicles icicles;
 
     // ScreenViewport for HUD
@@ -43,13 +49,23 @@ public class IciclesScreen implements Screen {
     //current game difficulty
     private Constants.DIFFICULTY current_difficulty;
 
-    //Set Difficulty inside the constructor
-    IciclesScreen(Constants.DIFFICULTY difficulty){
+
+    IciclesScreen(Constants.DIFFICULTY difficulty, IciclesGame  _icicles_game){
+        //Set Difficulty inside the constructor and save a reference to the class that class
+        //that creates IciclesScreen
+
+        //Save the IciclesGame
+        icicles_game = _icicles_game;
+
         current_difficulty = difficulty;
     }
 
     @Override
     public void show() {
+
+        //register this class to the input processor. This allows InputAdapter methods to be
+        //overridden for custom functionality in response to user input.
+        Gdx.input.setInputProcessor(this);
 
         //initialize the game screen area to the world size.
         icicles_screen_viewport = new ExtendViewport(Constants.WORLD_SIZE, Constants.WORLD_SIZE);
@@ -194,4 +210,16 @@ public class IciclesScreen implements Screen {
         text_render_sprite_batch.dispose();
 
     }
+
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        //this method is invoked when user "touchesDown" on an element registered in
+        //setInputProcessor. Here displayed view will switch the difficulty screen.
+
+        // Tell IciclesGame to show the difficulty screen
+        icicles_game.showDifficultyScreen();
+
+        return true;
+    }
+
 }
